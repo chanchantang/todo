@@ -1,0 +1,24 @@
+.task-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.card {
+  background-color: black;
+  color: white;
+}
+
+dialog {
+  padding: 0;
+  margin: auto;
+}
+
+#dialog-div {
+  padding: 16px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}

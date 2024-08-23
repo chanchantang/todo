@@ -7,6 +7,68 @@
     <title>Document</title>
 </head>
 <body>
-    Hello World!
+    <dialog class="task-dialog">
+        <div id="dialog-div">
+            <form action="" onsubmit="return false;">
+                <input type="text" class="dialog-title">
+                <select class="dialog-status">
+                    <option>Not started</option>
+                    <option>In progress</option>
+                    <option>Completed</option>
+                </select>
+                <select class="dialog-priority">
+                    <option>Low</option>
+                    <option>High</option>
+                    <option>Urgent</option>
+                </select>
+                <input type="date" class="dialog-due-date">
+                <select class="dialog-category">
+                    <option>Category</option>
+                    <option>To be implemented</option>
+                </select>
+            </form>
+            <button autofocus>Close</button>
+        </div>
+    </dialog>
+    <div class="task-cards">
+        <div class="card-category">All TODOs</div>
+        <!-- <div class="card">
+            <div class="card-title">${title}</div>
+            <div class="card-desc">${desc}</div>
+            <div class="card-priority">${priority}</div>
+            <div class="card-start-date">${startDate}</div>
+            <div class="card-due-date">${dueDate}</div>
+            <div class="card-status">${status}</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Clean up room</div>
+            <div class="card-desc">My room is messy</div>
+            <div class="card-priority">Medium</div>
+            <div class="card-start-date">8/20/24</div>
+            <div class="card-due-date">8/20/24</div>
+            <div class="card-status">Not started</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Work on todo list</div>
+            <div class="card-desc">You got this!</div>
+            <div class="card-priority">High</div>
+            <div class="card-start-date">8/20/24</div>
+            <div class="card-due-date">8/26/24</div>
+            <div class="card-status">In progress</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Pick school courses</div>
+            <div class="card-desc">Decide from the many</div>
+            <div class="card-priority">Low</div>
+            <div class="card-start-date">8/14/24</div>
+            <div class="card-due-date">9/31/24</div>
+            <div class="card-status">Completed</div>
+        </div> -->
+    </div>
+
+    <form class='new-task-form' action="" onsubmit="return false;">
+        <input type="text" class="text" placeholder="Enter task title">
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>

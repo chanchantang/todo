@@ -1,14 +1,17 @@
 ### Todo (literally):
-- Have a way to add tasks
-- Have a way to view tasks
+- Have a way to add tasks ✅
+- Have a way to view tasks ✅
 
-- Add checkbox for completion
-
-- Design a interface
-- Implement interface
+- Have a way to edit tasks ✅
+When user closes the modal, the task in UI will update
+    and update task internally
+    or
+When user updates task using editor, update task internally
 
 - Add categories for tasks
 - Have a way to view tasks by category
+
+- Add checkbox for completion
 
 - View tasks by date
 
@@ -23,3 +26,5 @@
 - Add animations
 
 - Add subtasks with suggestions
+
+- Add timed update to UI when editing task

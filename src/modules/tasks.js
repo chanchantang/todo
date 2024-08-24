@@ -33,19 +33,19 @@ export const tasks = {
   },
   '7412829b78d': {
     title: 'Clean up room',
-    priority: 'Medium',
-    startDate: '8/20/24',
-    dueDate: '8/20/24',
-    status: 'Not started',
+    priority: 'Low',
+    startDate: '2024-08-20',
+    dueDate: '2024-08-20',
+    status: 'Completed',
     notes: undefined,
     category: undefined
   },
   '412829b78d7': {
-    title: 'Work on todo list',
-    priority: 'High',
-    startDate: '8/20/24',
-    dueDate: '8/26/24',
-    status: 'In progress',
+    title: 'Pick school courses',
+    priority: 'Urgent',
+    startDate: '2024-08-20',
+    dueDate: '2024-08-26',
+    status: 'Not started',
     notes: undefined,
     category: undefined
   },

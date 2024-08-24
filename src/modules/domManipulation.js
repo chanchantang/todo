@@ -7,22 +7,23 @@ import { addTaskModalEvent } from "./eventListeners";
 
 const taskCards = document.querySelector('.task-cards');
 
+const dialog = document.getElementById('task-dialog');
 const dialogTitle = document.querySelector('.task-dialog .dialog-title');
 const dialogStatus = document.querySelector('.task-dialog .dialog-status');
 const dialogPriority = document.querySelector('.task-dialog .dialog-priority');
 const dialogDueDate = document.querySelector('.task-dialog .dialog-due-date');
 const dialogCategory = document.querySelector('.task-dialog .dialog-category');
-const dialogCloseButton = document.querySelector('.task-dialog button');
+// const dialogCloseButton = document.querySelector('.task-dialog button');
 
-export function setTaskDialog(task) {
+export function setTaskDialog(task, taskId) {
+  dialog.dataset.value = taskId;
+
   dialogTitle.value = task.title;
   dialogStatus.value = task.status;
   dialogPriority.value = task.priority;
   dialogDueDate.value = task.dueDate;
   dialogCategory.value = task.category;
 }
-
-const cards = document.querySelector('.task-cards');
 
 export function addTaskCard(task) {
   const newElement = document.createElement('div');
@@ -42,7 +43,7 @@ export function addTaskCard(task) {
 
   addTaskModalEvent(newElement);
 
-  cards.appendChild(newElement);
+  taskCards.appendChild(newElement);
 }
 
 export function addAllTaskCards() {
@@ -50,4 +51,23 @@ export function addAllTaskCards() {
     const newTask = createTask(task.title, task.priority, task.startDate, task.dueDate, task.status, task.notes, task.category, id);
     addTaskCard(newTask);
   }
+}
+
+export function updateTaskCardTitle(id, newTitle) {
+  const allTaskCards = document.querySelectorAll('.card');
+  allTaskCards.forEach(taskCard => {
+    if (taskCard.id == id) {
+      const cardTitle = taskCard.querySelector('.card-title');
+      cardTitle.innerHTML = newTitle;
+    }
+  });
+}
+
+export function deleteTaskCard(id) {
+  const allTaskCards = document.querySelectorAll('.card');
+  allTaskCards.forEach(taskCard => {
+    if (taskCard.id == id) {
+      taskCard.remove();
+    }
+  });
 }

@@ -1,6 +1,7 @@
 ### Todo (literally):
 - Have a way to add tasks ✅
 - Have a way to view tasks ✅
+- Remove/delete tasks
 
 - Have a way to edit tasks ✅
 When user closes the modal, the task in UI will update
@@ -8,8 +9,9 @@ When user closes the modal, the task in UI will update
     or
 When user updates task using editor, update task internally
 
-- Add categories for tasks
-- Have a way to view tasks by category
+- Add categories for tasks ✅
+- Have a way to view tasks by category ✅
+- Remove / delete categories
 
 - Add checkbox for completion
 
@@ -18,6 +20,10 @@ When user updates task using editor, update task internally
 - Sort tasks by priority/date
 
 - Add local storage
+
+### Issues
+
+### Bugs
 
 ### Future
 

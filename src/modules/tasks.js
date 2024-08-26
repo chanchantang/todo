@@ -6,7 +6,7 @@ export function createTask(title,
                           dueDate='2024-09-02', // Default to today
                           status='Not started', // Not started, In progress, Completed
                           notes='',
-                          category,
+                          category='Personal',
                           id=uid()
                           ) {
   return {
@@ -25,11 +25,12 @@ export const tasks = {
   '07412829b78': {
     title: 'Work on todo list',
     priority: 'High',
-    startDate: undefined,
-    dueDate: undefined,
+    startDate: '2024-08-22',
+    dueDate: '2024-09-02',
     status: 'In progress',
-    notes: undefined,
-    category: undefined
+    notes: '',
+    category: 'Work',
+    id: '07412829b78'
   },
   '7412829b78d': {
     title: 'Clean up room',
@@ -37,8 +38,9 @@ export const tasks = {
     startDate: '2024-08-20',
     dueDate: '2024-08-20',
     status: 'Completed',
-    notes: undefined,
-    category: undefined
+    notes: '',
+    category: 'Personal',
+    id: '7412829b78d'
   },
   '412829b78d7': {
     title: 'Pick school courses',
@@ -46,8 +48,9 @@ export const tasks = {
     startDate: '2024-08-20',
     dueDate: '2024-08-26',
     status: 'Not started',
-    notes: undefined,
-    category: undefined
+    notes: '',
+    category: 'School',
+    id: '412829b78d7'
   },
 }
 

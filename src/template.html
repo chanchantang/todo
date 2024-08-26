@@ -7,6 +7,25 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="main-container">
+        <div class="sidebar">
+            <div>My lists</div>
+            <form class='new-category-form' action="" onsubmit="return false;">
+                <input type="text" class="text" placeholder="Add a list title">
+                <button class="add-list"> + </button>
+            </form>
+        </div>
+        <div class="task-container">
+            <div class="task-cards">
+                <div class="card-category">Personal</div>
+            </div>
+
+            <form class='new-task-form' action="" onsubmit="return false;">
+                <input type="text" class="text" placeholder="Enter task title">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
     <dialog class="task-dialog" id="task-dialog">
         <div id="dialog-div">
             <form action="" onsubmit="return false;">
@@ -23,21 +42,10 @@
                 </select>
                 <input type="date" class="dialog-due-date">
                 <select class="dialog-category">
-                    <option>Category</option>
-                    <option>To be implemented</option>
                 </select>
             </form>
             <button autofocus>Close</button>
-            <button autofocus>Close</button>
         </div>
     </dialog>
-    <div class="task-cards">
-        <div class="card-category">All TODOs</div>
-    </div>
-
-    <form class='new-task-form' action="" onsubmit="return false;">
-        <input type="text" class="text" placeholder="Enter task title">
-        <button type="submit">Submit</button>
-    </form>
 </body>
 </html>

@@ -1,5 +1,6 @@
-import { setTaskDialog, addTaskCard, updateTaskCardTitle } from "./domManipulation";
+import * as domMan from "./domManipulation";
 import { createTask, tasks } from './tasks'
+import { categories } from "./category";
 
 const dialog = document.querySelector("dialog");
 const closeButton = document.querySelector("dialog button");
@@ -13,8 +14,15 @@ function closeAndUpdate() {
 export function addTaskModalEvent(cardDom) {
   cardDom.addEventListener('click', (e) => {
     const taskId = e.currentTarget.id;
-    setTaskDialog(tasks[taskId], taskId);
+    domMan.setTaskDialog(tasks[taskId], taskId);
     dialog.showModal();
+  });
+}
+
+export function addCategoryButtonEvent(buttonDom) {
+  buttonDom.addEventListener('click', (e) => {
+    domMan.hideAllTaskCards();
+    domMan.displayTaskCardByCategory(buttonDom.dataset.value);
   });
 }
 
@@ -37,7 +45,7 @@ newTaskForm.addEventListener("submit", (e) => {
 
   const task = createTask(newTaskTitle.value);
   tasks[task.id] = task;
-  addTaskCard(task);
+  domMan.displayTaskCard(task);
   newTaskForm.reset();
 });
 
@@ -65,7 +73,7 @@ dialogTitle.addEventListener('input', () => {
   const newTitle = dialogTitle.value;
   const taskId = dialog.dataset.value;
   tasks[taskId].title = newTitle;
-  updateTaskCardTitle(taskId, newTitle);
+  domMan.updateTaskCardTitle(taskId, newTitle);
 
   // Future feature
 
@@ -77,4 +85,15 @@ dialogTitle.addEventListener('input', () => {
   //   titleChanged = false;
   // }, 1000)
 
+});
+
+const newCategoryForm = document.querySelector('.new-category-form');
+const newCategoryTitle = document.querySelector('.new-category-form > input');
+newCategoryForm.addEventListener('submit', () => {
+  // need to add check for duplicate categories
+  const newCategory = newCategoryTitle.value;
+  if (!newCategory) return;
+  domMan.displayCategory(newCategory);
+  categories.push(newCategory);
+  newCategoryForm.reset();
 });

@@ -1,3 +1,9 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 .task-cards {
   display: flex;
   flex-direction: column;
@@ -21,4 +27,20 @@ dialog {
 form {
   display: flex;
   flex-direction: column;
+}
+
+.main-container {
+  display: flex;
+}
+
+.sidebar {
+  width: 270px;
+}
+
+.task-container {
+  width: 100%;
+}
+
+.hidden {
+  display: none;
 }

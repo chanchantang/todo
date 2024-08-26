@@ -1,9 +1,6 @@
 import { createTask, tasks } from './tasks'
-import { addTaskModalEvent } from "./eventListeners";
-
-
-
-
+import { addTaskModalEvent, addCategoryButtonEvent } from "./eventListeners";
+import { categories } from './category';
 
 const taskCards = document.querySelector('.task-cards');
 
@@ -15,6 +12,18 @@ const dialogDueDate = document.querySelector('.task-dialog .dialog-due-date');
 const dialogCategory = document.querySelector('.task-dialog .dialog-category');
 // const dialogCloseButton = document.querySelector('.task-dialog button');
 
+export function appendCategoryDialog(categoryName) {
+  const newOption = document.createElement('option');
+  newOption.innerHTML = categoryName;
+  dialogCategory.appendChild(newOption);
+}
+
+export function appendAllCategoriesDialog() {
+  for (const category of categories) {
+    appendCategoryDialog(category);
+  }
+}
+
 export function setTaskDialog(task, taskId) {
   dialog.dataset.value = taskId;
 
@@ -25,18 +34,36 @@ export function setTaskDialog(task, taskId) {
   dialogCategory.value = task.category;
 }
 
-export function addTaskCard(task) {
+const sidebar = document.querySelector('.sidebar');
+// should be called display in sidebar and add event listener
+export function displayCategory(categoryName) {
+  const newCategory = document.createElement('button');
+  newCategory.innerHTML = categoryName;
+  newCategory.dataset.value = categoryName;
+  addCategoryButtonEvent(newCategory);
+  sidebar.appendChild(newCategory);
+  // newCategory.classList.add(categoryName);
+}
+
+export function displayAllCategories() {
+  for (const category of categories) {
+    displayCategory(category);
+  }
+}
+
+export function displayTaskCard(task) {
   const newElement = document.createElement('div');
   newElement.classList.add('card');
   newElement.id = `${task.id}`;
 
   let cardInfo = `
     <div class="card-title">${task.title}</div>
-    <div class="card-desc">${task.desc} Out of order</div>
+    <div class="card-notes">Notes: ${task.notes}</div>
     <div class="card-priority">${task.priority}</div>
     <div class="card-start-date">${task.startDate}</div>
     <div class="card-due-date">${task.dueDate}</div>
     <div class="card-status">${task.status}</div>
+    <div class="card-category">${task.category}</div>
   `
 
   newElement.innerHTML += cardInfo;
@@ -46,10 +73,17 @@ export function addTaskCard(task) {
   taskCards.appendChild(newElement);
 }
 
-export function addAllTaskCards() {
+export function displayAllTaskCards() {
   for (const [id, task] of Object.entries(tasks)) {
-    const newTask = createTask(task.title, task.priority, task.startDate, task.dueDate, task.status, task.notes, task.category, id);
-    addTaskCard(newTask);
+    displayTaskCard(task);
+  }
+}
+
+export function displayTaskCardByCategory(category) {
+  for (const [id, task] of Object.entries(tasks)) {
+    if (task.category != category) continue;
+    // const newTask = createTask(task.title, task.priority, task.startDate, task.dueDate, task.status, task.notes, task.category, id);
+    displayTaskCard(task);
   }
 }
 
@@ -69,5 +103,12 @@ export function deleteTaskCard(id) {
     if (taskCard.id == id) {
       taskCard.remove();
     }
+  });
+}
+
+export function hideAllTaskCards() {
+  const allTaskCards = document.querySelectorAll('.card');
+  allTaskCards.forEach(taskCard => {
+    taskCard.remove();
   });
 }

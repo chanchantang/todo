@@ -1,6 +1,6 @@
 import * as domMan from "./domManipulation";
 import { createTask, tasks } from './tasks'
-import { categories } from "./category";
+import { categories } from "./categories";
 
 const dialog = document.querySelector("dialog");
 const closeButton = document.querySelector("dialog button");
@@ -58,6 +58,7 @@ const dialogCategory = document.querySelector('.dialog-category');
 function addTaskChangeListener(dom, property) {
   dom.addEventListener('input', () => {
     const newValue = dom.value;
+    if (!newValue) return;
     const taskId = dialog.dataset.value;
     tasks[taskId][property] = newValue;
   });
@@ -71,6 +72,7 @@ addTaskChangeListener(dialogCategory, 'category');
 // also changes ui
 dialogTitle.addEventListener('input', () => {
   const newTitle = dialogTitle.value;
+  if (!newTitle) return;
   const taskId = dialog.dataset.value;
   tasks[taskId].title = newTitle;
   domMan.updateTaskCardTitle(taskId, newTitle);

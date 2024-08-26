@@ -1,6 +1,6 @@
 import { createTask, tasks } from './tasks'
 import { addTaskModalEvent, addCategoryButtonEvent } from "./eventListeners";
-import { categories } from './category';
+import { categories } from './categories';
 
 const taskCards = document.querySelector('.task-cards');
 
@@ -79,7 +79,9 @@ export function displayAllTaskCards() {
   }
 }
 
+const taskCategoryTitle = document.querySelector('.task-cards-category');
 export function displayTaskCardByCategory(category) {
+  taskCategoryTitle.innerHTML = category; // maybe move this to a new function
   for (const [id, task] of Object.entries(tasks)) {
     if (task.category != category) continue;
     // const newTask = createTask(task.title, task.priority, task.startDate, task.dueDate, task.status, task.notes, task.category, id);

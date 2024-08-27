@@ -99,3 +99,14 @@ newCategoryForm.addEventListener('submit', () => {
   categories.push(newCategory);
   newCategoryForm.reset();
 });
+
+
+const sidebarIcon = document.querySelector('.sidebar-icon');
+const sidebar = document.querySelector('.sidebar')
+sidebarIcon.addEventListener("click", () => {
+  sidebar.classList.toggle('hidden');
+});
+
+// document.querySelector('sidebar-icon').onclick = function() {
+//   this.classList.toggle('active');
+// }

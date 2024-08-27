@@ -19,14 +19,19 @@ Have to decide what to do with tasks within the category
 - Add checkbox for completion (this is a binary option, need to decide whether to have only 'Not started' and 'Completed' or all three)
 
 - Make it pretty
+    - Add new font (apple?)
+
+- Move add task stickied to the bottom of the div
 
 - Add local storage
 
 ### Issues
 - When adding new tasks within a certain category, the default category for the task should be that
+- Background image is taking too long to load, solutions: change image, lazy loading?, etc
 
 ### Bugs
 - When updating the category of a task, it is not instantly removed from being displayed
+- Handle task/categories that go over the space limit
 
 ### Extra Features
 
@@ -50,3 +55,5 @@ Have to decide what to do with tasks within the category
 - Add timed update to UI when editing task
 
 - Maybe instead of a modal popup for editing, add a side window which displays details
+
+- Make sure code is consistent, ex: ' and ", or coding wise with SOLID principles

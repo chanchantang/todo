@@ -1,9 +1,9 @@
 import * as domMan from "./domManipulation";
-import { createTask, tasks } from './tasks'
-import { categories } from "./categories";
+import { createTask, tasks, createAndAddTask, updateTask } from './tasks'
+import { categories, addCategory } from "./categories";
 
 const dialog = document.querySelector("dialog");
-const closeButton = document.querySelector("dialog button");
+const closeButton = document.querySelector("dialog .dialog-close");
 
 const taskCards = document.querySelectorAll('.task-cards .card');
 
@@ -21,8 +21,22 @@ export function addTaskModalEvent(cardDom) {
 
 export function addCategoryButtonEvent(buttonDom) {
   buttonDom.addEventListener('click', (e) => {
+    // maybe move this to a single function
     domMan.hideAllTaskCards();
     domMan.displayTaskCardByCategory(buttonDom.dataset.value);
+  });
+}
+
+export function addStatusToggleEvent(dom) {
+  dom.addEventListener('click', (e) => {
+    e.stopImmediatePropagation(); // stops the opening of the dialog
+    // updateTask(taskId, property, newValue);
+    if (dom.checked) {
+      updateTask(dom.dataset.value, 'status', 'Completed');
+    } else {
+      updateTask(dom.dataset.value, 'status', 'In progress');
+    }
+    console.log(dom.checked);
   });
 }
 
@@ -43,13 +57,13 @@ const newTaskTitle = document.querySelector('.new-task-form > input');
 newTaskForm.addEventListener("submit", (e) => {
   if (!newTaskTitle.value) return;
 
-  const task = createTask(newTaskTitle.value);
-  tasks[task.id] = task;
+  const task = createAndAddTask(newTaskTitle.value);
   domMan.displayTaskCard(task);
   newTaskForm.reset();
 });
 
 const dialogTitle = document.querySelector('.dialog-title');
+const dialogNotes = document.querySelector('.dialog-notes');
 const dialogPriority = document.querySelector('.dialog-priority');
 const dialogStatus = document.querySelector('.dialog-status');
 const dialogDueDate = document.querySelector('.dialog-due-date');
@@ -59,11 +73,13 @@ function addTaskChangeListener(dom, property) {
   dom.addEventListener('input', () => {
     const newValue = dom.value;
     if (!newValue) return;
+
     const taskId = dialog.dataset.value;
-    tasks[taskId][property] = newValue;
+    updateTask(taskId, property, newValue);
   });
 }
 
+addTaskChangeListener(dialogNotes, 'notes');
 addTaskChangeListener(dialogPriority, 'priority');
 addTaskChangeListener(dialogStatus, 'status');
 addTaskChangeListener(dialogDueDate, 'dueDate');
@@ -74,7 +90,7 @@ dialogTitle.addEventListener('input', () => {
   const newTitle = dialogTitle.value;
   if (!newTitle) return;
   const taskId = dialog.dataset.value;
-  tasks[taskId].title = newTitle;
+  updateTask(taskId, 'title', newTitle);
   domMan.updateTaskCardTitle(taskId, newTitle);
 
   // Future feature
@@ -92,12 +108,17 @@ dialogTitle.addEventListener('input', () => {
 const newCategoryForm = document.querySelector('.new-category-form');
 const newCategoryTitle = document.querySelector('.new-category-form > input');
 newCategoryForm.addEventListener('submit', () => {
-  // need to add check for duplicate categories
   const newCategory = newCategoryTitle.value;
   if (!newCategory) return;
-  domMan.displayCategory(newCategory);
-  categories.push(newCategory);
-  newCategoryForm.reset();
+
+  if (addCategory(newCategory)) {
+    domMan.displayCategory(newCategory);
+    domMan.appendCategoryDialog(newCategory);
+    // consider putting these two functions into 1
+    newCategoryForm.reset();
+  } else {
+    // error message
+  }
 });
 
 
@@ -107,6 +128,14 @@ sidebarIcon.addEventListener("click", () => {
   sidebar.classList.toggle('hidden');
 });
 
-// document.querySelector('sidebar-icon').onclick = function() {
-//   this.classList.toggle('active');
-// }
+const allTasksButton = document.querySelector('.category-all-tasks');
+allTasksButton.addEventListener("click", () => {
+  domMan.hideAllTaskCards();
+  domMan.displayAllTaskCards();
+});
+
+const taskCardsCategory = document.querySelector('.task-cards-category');
+taskCardsCategory.addEventListener("input", () => {
+  // call categories.rename()
+  // change name in sidebar
+});

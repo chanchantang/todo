@@ -10,20 +10,24 @@ When the user closes modal (advantages could be performance and if the user does
 Immediately when updating task ✅
 
 - Add categories for tasks ✅
-Need to change so that adding categories is done within categories.js with duplicate checking
+Need to change so that adding categories is done within categories.js with duplicate checking ✅
 - Have a way to view tasks by category ✅
 - Remove / delete categories
-Have to decide what to do with tasks within the category
+Have to decide what to do with tasks within the category, get deleted or moved (probably moved to the general category)
 - Rename categories
 
-- Add checkbox for completion (this is a binary option, need to decide whether to have only 'Not started' and 'Completed' or all three)
+- Add checkbox for completion
+this is a binary option, need to decide whether to have only 'Not started' and 'Completed' or all three
+maybe instead save the last status and when toggling, toggles between completed and the last status
 
 - Make it pretty
-    - Add new font (apple?)
+Add new font (apple?)
 
 - Move add task stickied to the bottom of the div
 
 - Add local storage
+
+- Move completed items to the bottom of the list
 
 ### Issues
 - When adding new tasks within a certain category, the default category for the task should be that
@@ -38,6 +42,8 @@ Have to decide what to do with tasks within the category
 - Add numbers next to categories to show number of tasks
 
 - Changing names to empty should have an error message
+
+- Adding duplicate categories should give error message
 
 - Change dates to include time
 
@@ -57,3 +63,15 @@ Have to decide what to do with tasks within the category
 - Maybe instead of a modal popup for editing, add a side window which displays details
 
 - Make sure code is consistent, ex: ' and ", or coding wise with SOLID principles
+Find out when to use id or class for event listeners
+
+- Change the looks on mobile
+
+- Add different popups for selection of category
+- Maybe change dialog to a div
+
+- Clicking category header hides buttons
+
+- Convert everything to dataset value instead of id
+
+- Add a line through text for completed tasks

@@ -54,7 +54,16 @@ export const tasks = {
   },
 }
 
+export function createAndAddTask(taskTitle) {
+  // add error checking
+  const task = createTask(taskTitle);
+  tasks[task.id] = task;
+  return task;
+}
 
+export function updateTask(taskId, property, value) {
+  tasks[taskId][property] = value;
+}
 
 // export default class Task {
 //   constructor(title,

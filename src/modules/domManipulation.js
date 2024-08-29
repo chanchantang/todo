@@ -1,11 +1,12 @@
 import { createTask, tasks } from './tasks'
-import { addTaskModalEvent, addCategoryButtonEvent } from "./eventListeners";
+import { addTaskModalEvent, addCategoryButtonEvent, addStatusToggleEvent } from "./eventListeners";
 import { categories } from './categories';
 
 const taskCards = document.querySelector('.task-cards');
 
 const dialog = document.getElementById('task-dialog');
 const dialogTitle = document.querySelector('.task-dialog .dialog-title');
+const dialogNotes = document.querySelector('.task-dialog .dialog-notes')
 const dialogStatus = document.querySelector('.task-dialog .dialog-status');
 const dialogPriority = document.querySelector('.task-dialog .dialog-priority');
 const dialogDueDate = document.querySelector('.task-dialog .dialog-due-date');
@@ -28,20 +29,21 @@ export function setTaskDialog(task, taskId) {
   dialog.dataset.value = taskId;
 
   dialogTitle.value = task.title;
+  dialogNotes.value = task.notes;
   dialogStatus.value = task.status;
   dialogPriority.value = task.priority;
   dialogDueDate.value = task.dueDate;
   dialogCategory.value = task.category;
 }
 
-const sidebar = document.querySelector('.sidebar');
-// should be called display in sidebar and add event listener
+const categoryContainer = document.querySelector('.category-container');
+// should be called display category button in sidebar and add event listener
 export function displayCategory(categoryName) {
   const newCategory = document.createElement('button');
   newCategory.innerHTML = categoryName;
   newCategory.dataset.value = categoryName;
   addCategoryButtonEvent(newCategory);
-  sidebar.appendChild(newCategory);
+  categoryContainer.appendChild(newCategory);
   // newCategory.classList.add(categoryName);
 }
 
@@ -52,28 +54,44 @@ export function displayAllCategories() {
 }
 
 export function displayTaskCard(task) {
-  const newElement = document.createElement('div');
-  newElement.classList.add('card');
-  newElement.id = `${task.id}`;
+  const cardDiv = document.createElement('div');
+  cardDiv.classList.add('task-card');
+  cardDiv.id = `${task.id}`;
 
-  let cardInfo = `
-    <div class="card-title">${task.title}</div>
-    <div class="card-notes">Notes: ${task.notes}</div>
-    <div class="card-priority">${task.priority}</div>
-    <div class="card-start-date">${task.startDate}</div>
-    <div class="card-due-date">${task.dueDate}</div>
-    <div class="card-status">${task.status}</div>
-    <div class="card-category">${task.category}</div>
-  `
+  // let cardInfo = `
+  //   <div class="card-title">${task.title}</div>
+  //   <div class="card-notes">Notes: ${task.notes}</div>
+  //   <div class="card-priority">${task.priority}</div>
+  //   <div class="card-start-date">${task.startDate}</div>
+  //   <div class="card-due-date">${task.dueDate}</div>
+  //   <div class="card-status">${task.status}</div>
+  //   <div class="card-category">${task.category}</div>
+  // `
+  const statusCheckbox = document.createElement('input');
+  statusCheckbox.type = 'checkbox';
+  statusCheckbox.dataset.value = task.id;
+  if (task.status == 'Completed') {
+    statusCheckbox.checked = true;
+  }
+  addStatusToggleEvent(statusCheckbox);
+  // add event listener
 
-  newElement.innerHTML += cardInfo;
+  const cardTitleDiv = document.createElement('div');
+  cardTitleDiv.classList.add('card-title');
+  cardTitleDiv.innerHTML = task.title;
 
-  addTaskModalEvent(newElement);
+  cardDiv.append(statusCheckbox);
+  cardDiv.append(cardTitleDiv);
 
-  taskCards.appendChild(newElement);
+  addTaskModalEvent(cardDiv);
+
+  taskCards.appendChild(cardDiv);
 }
 
 export function displayAllTaskCards() {
+  taskCategoryTitle.value = 'All my tasks';
+  taskCategoryTitle.disabled = true;
+
   for (const [id, task] of Object.entries(tasks)) {
     displayTaskCard(task);
   }
@@ -81,7 +99,9 @@ export function displayAllTaskCards() {
 
 const taskCategoryTitle = document.querySelector('.task-cards-category');
 export function displayTaskCardByCategory(category) {
-  taskCategoryTitle.innerHTML = category; // maybe move this to a new function
+  taskCategoryTitle.value = category; // maybe move this to a new function
+  taskCategoryTitle.disabled = false;
+
   for (const [id, task] of Object.entries(tasks)) {
     if (task.category != category) continue;
     // const newTask = createTask(task.title, task.priority, task.startDate, task.dueDate, task.status, task.notes, task.category, id);
@@ -100,7 +120,7 @@ export function updateTaskCardTitle(id, newTitle) {
 }
 
 export function deleteTaskCard(id) {
-  const allTaskCards = document.querySelectorAll('.card');
+  const allTaskCards = document.querySelectorAll('.task-card');
   allTaskCards.forEach(taskCard => {
     if (taskCard.id == id) {
       taskCard.remove();
@@ -109,7 +129,7 @@ export function deleteTaskCard(id) {
 }
 
 export function hideAllTaskCards() {
-  const allTaskCards = document.querySelectorAll('.card');
+  const allTaskCards = document.querySelectorAll('.task-card');
   allTaskCards.forEach(taskCard => {
     taskCard.remove();
   });

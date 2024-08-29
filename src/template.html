@@ -3,35 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- This somehow fixes the problem with sticky on mobile -->
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, target-densitydpi=device-dpi">
+    <title>Todo</title>
 </head>
 <body>
     <div class="main-container">
-        <button class="sidebar-icon"></button>
-        <div class="sidebar">
 
-            <div>My lists</div>
-            <form class='new-category-form' action="" onsubmit="return false;">
-                <input type="text" class="text" placeholder="Add a list title">
-                <button class="add-list"> + </button>
-            </form>
+        <div class="sidebar">
+            <button class="sidebar-icon">Close</button>
+            <div class="day-container">
+                <div>Tasks</div>
+                <button>My day</button>
+                <button>Next 7 days</button>
+                <button class="category-all-tasks">All my tasks</button>
+                <!-- should probably rename -->
+            </div>
+
+            <div class="category-container">
+                <div>My lists</div>
+                <form class='new-category-form' action="" onsubmit="return false;">
+                    <input type="text" class="text" placeholder="Add a list title">
+                    <button class="add-list"> + </button>
+                </form>
+            </div>
         </div>
         <div class="task-container">
-            <div class="task-cards-category">Personal</div>
+            <input type="text" class="task-cards-category">
             <div class="task-cards">
 
             </div>
             <form class='new-task-form' action="" onsubmit="return false;">
-                <input type="text" class="text" placeholder="Enter task title">
-                <button type="submit">Submit</button>
+                <input type="text" placeholder=" + Add task">
+                <!-- <button type="submit">Submit</button> -->
             </form>
         </div>
     </div>
     <dialog class="task-dialog" id="task-dialog">
         <div id="dialog-div">
+            <div class="dialog-header">
+                <button>Category Name</button>
+                <button class="dialog-close" autofocus>X</button>
+            </div>
             <form action="" onsubmit="return false;">
                 <input type="text" class="dialog-title">
+                <label for="dialog-notes">Notes:</label>
+                <textarea name="notes" id="dialog-notes" class="dialog-notes" cols="30" rows="10"></textarea>
                 <select class="dialog-status">
                     <option>Not started</option>
                     <option>In progress</option>
@@ -46,7 +63,6 @@
                 <select class="dialog-category">
                 </select>
             </form>
-            <button autofocus>Close</button>
         </div>
     </dialog>
 </body>

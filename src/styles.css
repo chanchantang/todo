@@ -18,29 +18,77 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.sidebar button:hover {
+  background-color: #393939;
+}
+
+/* Title of category */
+.day-container > *:first-child, .category-container > *:first-child {
+  color: white;
+}
+
+.sidebar .day-container, .sidebar .category-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-container {
+  width: 100%;
+  margin: 15px;
+  background-color: #161616;
+  border-radius: 10px;
+}
+
+.task-cards-category {
+  padding: 10px;
+}
+
 .task-cards {
   display: flex;
   flex-direction: column;
   /* gap: 15px; */
 }
 
-.card {
+.task-card {
   color: white;
+  height: 40px;
   padding: 5px 10px 5px;
-  margin: 5px 10px 5px;
+  margin: 5px 0;
   border-radius: 10px;
   transition: background-color 0.1s; /* just makes it a bit smoother */
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-.card:hover {
+.task-card:hover {
   background-color: #393939;
+}
+
+.task-card input {
+  width: 20px;
+  height: 20px;
+  border-width: thin;
+  border-color: #6e6e72;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+.task-card input:hover {
+  border-color: lightblue;
+}
+
+.task-card input:checked {
+  background-color: lightblue;
 }
 
 dialog {
   background-color: #161616;
   padding: 0;
   margin: auto;
-  width: 50%;
+  width: 25%;
+  min-width: 300px;
   height: 50%;
   border: none;
   border-radius: 10px;
@@ -54,6 +102,38 @@ dialog::backdrop {
 
 #dialog-div {
   padding: 16px;
+}
+
+/*    https://codepen.io/nxworld/pen/RNdwee     */
+* {
+  padding: 0;
+	background: none;
+	border: none;
+	border-radius: 0;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+  color: white;
+}
+
+#dialog-notes {
+  resize: none;
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+#dialog-div form {
+  gap: 15px;
+}
+
+.dialog-title {
+  font-size: x-large;
+  font-weight: bolder;
 }
 
 form {
@@ -72,19 +152,27 @@ form {
   height: 100vh;
 }
 
-.task-container {
-  width: 100%;
-  /* height: 100vh; */
-  margin: 15px;
-  background-color: #161616;
-}
-
 /* stick to bottom of div */
 .new-task-form {
+  background-color: #252525;
   /* position: relative;
   width: 100%; */
 }
 
+.new-task-form input {
+  background-color: #424242;
+  border-width: thin;
+  border-color: #79797c;
+  border-style: solid;
+  border-radius: 5px;
+  margin: 10px;
+  height: 30px;
+}
+
 .hidden {
   display: none;
+}
+
+.line-through {
+  text-decoration: line-through;
 }

@@ -10,6 +10,7 @@ const dialogNotes = document.querySelector('.task-dialog .dialog-notes')
 const dialogStatus = document.querySelector('.task-dialog .dialog-status');
 const dialogPriority = document.querySelector('.task-dialog .dialog-priority');
 const dialogDueDate = document.querySelector('.task-dialog .dialog-due-date');
+const dialogDueDatePlaceholder = document.querySelector('.due-date-placeholder');
 const dialogCategory = document.querySelector('.task-dialog .dialog-category');
 // const dialogCloseButton = document.querySelector('.task-dialog button');
 
@@ -32,7 +33,10 @@ export function setTaskDialog(task, taskId) {
   dialogNotes.value = task.notes;
   dialogStatus.value = task.status;
   dialogPriority.value = task.priority;
+
   dialogDueDate.value = task.dueDate;
+  dialogDueDatePlaceholder.innerHTML = dialogDueDate.value;
+
   dialogCategory.value = task.category;
 }
 

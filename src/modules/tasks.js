@@ -1,7 +1,7 @@
 import { uid } from 'uid';
 
 export function createTask(title,
-                          priority='', // Low, High, Urgent
+                          priority='Low', // Low, High, Urgent
                           startDate='2024-08-22', // Default to today
                           dueDate='2024-09-02', // Default to today
                           status='Not started', // Not started, In progress, Completed

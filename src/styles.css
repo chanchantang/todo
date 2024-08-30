@@ -40,12 +40,13 @@
 }
 
 .task-cards-category {
-  padding: 10px;
+  padding: 25px 25px 10px 25px;
 }
 
 .task-cards {
   display: flex;
   flex-direction: column;
+  padding: 0 25px 10px 10px;
   /* gap: 15px; */
 }
 
@@ -102,6 +103,7 @@ dialog::backdrop {
 
 #dialog-div {
   padding: 16px;
+  height: 100%;
 }
 
 /*    https://codepen.io/nxworld/pen/RNdwee     */
@@ -124,7 +126,7 @@ dialog::backdrop {
 .dialog-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 50px;
+  margin-bottom: 15px;
 }
 
 #dialog-div form {
@@ -155,6 +157,7 @@ form {
 /* stick to bottom of div */
 .new-task-form {
   background-color: #252525;
+  padding: 0 5px;
   /* position: relative;
   width: 100%; */
 }
@@ -166,6 +169,7 @@ form {
   border-style: solid;
   border-radius: 5px;
   margin: 10px;
+  padding: 10px;
   height: 30px;
 }
 
@@ -175,4 +179,72 @@ form {
 
 .line-through {
   text-decoration: line-through;
+}
+
+.dialog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.dialog-tag {
+  background-color: #252525;
+  border-radius: 20px;
+  padding: 5px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dialog-due-date-div {
+  display: grid;
+}
+
+.dialog-due-date, .placeholder {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.dialog-due-date {
+  position: absolute;
+  /* display: none; */
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.date-icon {
+  background-color: lightcoral;
+  -webkit-mask:  url(assets/icons/calendar_clock.svg) center/cover no-repeat;
+  mask: url(assets/icons/calendar_clock.svg) center/cover no-repeat;
+  width: 24px;
+  height: 24px;
+}
+
+.priority-icon {
+  background-color: lightskyblue;
+  -webkit-mask:  url(assets/icons/priority.svg) center/cover no-repeat;
+  mask: url(assets/icons/priority.svg) center/cover no-repeat;
+  width: 24px;
+  height: 24px;
+}
+
+.close-icon {
+  background-color: white;
+  -webkit-mask:  url(assets/icons/close.svg) center/cover no-repeat;
+  mask: url(assets/icons/close.svg) center/cover no-repeat;
+  width: 24px;
+  height: 24px;
+}
+
+.category-icon {
+  background-color: lightgoldenrodyellow;
+  -webkit-mask:  url(assets/icons/topic.svg) center/cover no-repeat;
+  mask: url(assets/icons/topic.svg) center/cover no-repeat;
+  width: 24px;
+  height: 24px;
+}
+
+
+.dialog-notes-label, .dialog-status {
+  color: #989898;
 }

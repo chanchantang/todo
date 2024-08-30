@@ -15,6 +15,7 @@ Need to change so that adding categories is done within categories.js with dupli
 - Remove / delete categories
 Have to decide what to do with tasks within the category, get deleted or moved (probably moved to the general category)
 - Rename categories
+May need to add an id to categories as well
 
 - Add checkbox for completion
 this is a binary option, need to decide whether to have only 'Not started' and 'Completed' or all three
@@ -22,6 +23,10 @@ maybe instead save the last status and when toggling, toggles between completed 
 
 - Make it pretty
 Add new font (apple?)
+Sidebar
+    - Icon to hide and open
+Modal
+Task container
 
 - Move add task stickied to the bottom of the div
 
@@ -32,6 +37,7 @@ Add new font (apple?)
 ### Issues
 - When adding new tasks within a certain category, the default category for the task should be that
 - Background image is taking too long to load, solutions: change image, lazy loading?, etc
+- The icon is not part of the selector when choosing dates
 
 ### Bugs
 - When updating the category of a task, it is not instantly removed from being displayed

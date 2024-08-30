@@ -139,3 +139,9 @@ taskCardsCategory.addEventListener("input", () => {
   // call categories.rename()
   // change name in sidebar
 });
+
+
+const test1 = document.querySelector('.dialog-due-date-div');
+test1.addEventListener('click', () => {
+  dialogDueDate.showPicker();
+});

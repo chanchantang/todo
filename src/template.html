@@ -43,25 +43,46 @@
         <div id="dialog-div">
             <div class="dialog-header">
                 <button>Category Name</button>
-                <button class="dialog-close" autofocus>X</button>
-            </div>
-            <form action="" onsubmit="return false;">
-                <input type="text" class="dialog-title">
-                <label for="dialog-notes">Notes:</label>
-                <textarea name="notes" id="dialog-notes" class="dialog-notes" cols="30" rows="10"></textarea>
                 <select class="dialog-status">
                     <option>Not started</option>
                     <option>In progress</option>
                     <option>Completed</option>
                 </select>
-                <select class="dialog-priority">
-                    <option>Low</option>
-                    <option>High</option>
-                    <option>Urgent</option>
-                </select>
-                <input type="date" class="dialog-due-date">
-                <select class="dialog-category">
-                </select>
+                <div class="dialog-close">
+                    <div class="close-icon"></div>
+                    <!-- <button autofocus></button> -->
+                    <!-- maybe i should add for accessability  -->
+                </div>
+            </div>
+            <form action="" onsubmit="return false;">
+                <div class="dialog-tags">
+                    <div class="dialog-tag">
+                        <div class="category-icon"></div>
+                        <select class="dialog-category">
+                        </select>
+                    </div>
+
+                    <div class="dialog-tag">
+                        <div class="priority-icon"></div>
+                        <select class="dialog-priority">
+                            <option>Low</option>
+                            <option>High</option>
+                            <option>Urgent</option>
+                        </select>
+                    </div>
+                    <div class="dialog-tag">
+                        <div class="date-icon"></div>
+                        <div class="dialog-due-date-div">
+
+                            <div class="due-date-placeholder">Wed, 28 Aug</div>
+                            <input type="date" class="dialog-due-date">
+                        </div>
+                    </div>
+
+                </div>
+                <input type="text" class="dialog-title">
+                <label class="dialog-notes-label" for="dialog-notes">Notes:</label>
+                <textarea name="notes" id="dialog-notes" class="dialog-notes" cols="30" rows="10"></textarea>
             </form>
         </div>
     </dialog>

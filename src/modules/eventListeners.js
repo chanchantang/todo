@@ -122,11 +122,20 @@ newCategoryForm.addEventListener('submit', () => {
 });
 
 
-const sidebarIcon = document.querySelector('.sidebar-icon');
+const sidebarCollapse = document.querySelector('.sidebar-collapse');
+const sidebarOpen = document.querySelector('.sidebar-open');
 const sidebar = document.querySelector('.sidebar')
-sidebarIcon.addEventListener("click", () => {
-  sidebar.classList.toggle('hidden');
+sidebarCollapse.addEventListener("click", () => {
+  sidebar.classList.add('hidden');
+  sidebarOpen.classList.remove('hidden');
 });
+
+
+sidebarOpen.addEventListener("click", () => {
+  sidebar.classList.remove('hidden');
+  sidebarOpen.classList.add('hidden');
+});
+
 
 const allTasksButton = document.querySelector('.category-all-tasks');
 allTasksButton.addEventListener("click", () => {
@@ -145,3 +154,9 @@ const test1 = document.querySelector('.dialog-due-date-div');
 test1.addEventListener('click', () => {
   dialogDueDate.showPicker();
 });
+
+
+// const newCategoryTitlei = document.querySelector('category-title');
+// newCategoryTitlei.addEventListener('click', () => {
+//   dialogDueDate.showPicker();
+// });

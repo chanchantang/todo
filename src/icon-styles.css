@@ -1,0 +1,79 @@
+.date-icon {
+  background-color: lightcoral;
+  -webkit-mask:  url(assets/icons/calendar_clock.svg) center/cover no-repeat;
+  mask: url(assets/icons/calendar_clock.svg) center/cover no-repeat;
+  width: 24px;
+  height: 24px;
+}
+
+.priority-icon {
+  background-color: lightskyblue;
+  -webkit-mask:  url(assets/icons/priority.svg) center/cover no-repeat;
+  mask: url(assets/icons/priority.svg) center/cover no-repeat;
+  width: 24px;
+  height: 24px;
+}
+
+.close-icon {
+  background-color: white;
+  -webkit-mask:  url(assets/icons/close.svg) center/cover no-repeat;
+  mask: url(assets/icons/close.svg) center/cover no-repeat;
+  width: 24px;
+  height: 24px;
+}
+
+.category-icon {
+  background-color: lightgoldenrodyellow;
+  -webkit-mask:  url(assets/icons/topic.svg) center/cover no-repeat;
+  mask: url(assets/icons/topic.svg) center/cover no-repeat;
+  width: 24px;
+  height: 24px;
+}
+
+.sidebar-left-icon {
+  background-color: lightgoldenrodyellow;
+  -webkit-mask:  url(assets/icons/dock_to_left.svg) center/cover no-repeat;
+  mask: url(assets/icons/dock_to_left.svg) center/cover no-repeat;
+  width: 24px;
+  height: 24px;
+}
+
+.sidebar-right-icon {
+  background-color: lightgoldenrodyellow;
+  -webkit-mask:  url(assets/icons/dock_to_right.svg) center/cover no-repeat;
+  mask: url(assets/icons/dock_to_right.svg) center/cover no-repeat;
+  width: 24px;
+  height: 24px;
+}
+
+.add-icon {
+  background-color: white;
+  -webkit-mask:  url(assets/icons/add.svg) center/cover no-repeat;
+  mask: url(assets/icons/add.svg) center/cover no-repeat;
+  width: 24px;
+  height: 24px;
+}
+
+.target-icon {
+  background-color: #949494;
+  -webkit-mask:  url(assets/icons/target.svg) center/cover no-repeat;
+  mask: url(assets/icons/target.svg) center/cover no-repeat;
+  width: 20px;
+  height: 20px;
+}
+
+.filter-7-icon {
+  background-color: #949494;
+  -webkit-mask:  url(assets/icons/filter_7.svg) center/cover no-repeat;
+  mask: url(assets/icons/filter_7.svg) center/cover no-repeat;
+  width: 20px;
+  height: 20px;
+}
+
+.article-icon {
+  background-color: #949494;
+  -webkit-mask:  url(assets/icons/article.svg) center/cover no-repeat;
+  mask: url(assets/icons/article.svg) center/cover no-repeat;
+  width: 20px;
+  height: 20px;
+}

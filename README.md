@@ -28,7 +28,7 @@ Sidebar
 Modal
 Task container
 
-- Move add task stickied to the bottom of the div
+- Move add task stickied to the bottom of the div?
 
 - Add local storage
 
@@ -38,6 +38,7 @@ Task container
 - When adding new tasks within a certain category, the default category for the task should be that
 - Background image is taking too long to load, solutions: change image, lazy loading?, etc
 - The icon is not part of the selector when choosing dates
+- Long list names will show that way in the tags
 
 ### Bugs
 - When updating the category of a task, it is not instantly removed from being displayed

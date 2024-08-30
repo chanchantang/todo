@@ -9,19 +9,42 @@
 </head>
 <body>
     <div class="main-container">
-
+        <div class="sidebar-open hidden">
+            <div class="sidebar-left-icon"></div>
+        </div>
         <div class="sidebar">
-            <button class="sidebar-icon">Close</button>
+            <div class="sidebar-collapse">
+                <div class="sidebar-right-icon"></div>
+                <!-- <button class="sidebar-icon">Close</button> -->
+            </div>
+
+
             <div class="day-container">
-                <div>Tasks</div>
-                <button>My day</button>
-                <button>Next 7 days</button>
-                <button class="category-all-tasks">All my tasks</button>
-                <!-- should probably rename -->
+                <div class="category-title">
+                    <div>Tasks</div>
+                    <!-- <div class="add-icon"></div> -->
+                </div>
+                <div class="category-day-tasks category-section">
+                    <div class="target-icon"></div>
+                    <button>My day</button>
+                </div>
+                <div class="category-week-tasks category-section">
+                    <div class="filter-7-icon"></div>
+                    <button>Next 7 days</button>
+                </div>
+
+                <div class="category-all-tasks category-section">
+                    <div class="article-icon"></div>
+                    <button>All my tasks</button>
+                </div>
             </div>
 
             <div class="category-container">
-                <div>My lists</div>
+                <div class="category-title">
+                    <div>My lists</div>
+                    <div class="add-icon"></div>
+                </div>
+
                 <form class='new-category-form' action="" onsubmit="return false;">
                     <input type="text" class="text" placeholder="Add a list title">
                     <button class="add-list"> + </button>
@@ -86,5 +109,6 @@
             </form>
         </div>
     </dialog>
+    <dialog class="category-dialog" id="category-dialog"></dialog>
 </body>
 </html>

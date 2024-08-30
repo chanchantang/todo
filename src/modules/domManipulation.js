@@ -43,11 +43,19 @@ export function setTaskDialog(task, taskId) {
 const categoryContainer = document.querySelector('.category-container');
 // should be called display category button in sidebar and add event listener
 export function displayCategory(categoryName) {
+  const categorySection = document.createElement('div');
+  categorySection.classList.add('category-section');
+  addCategoryButtonEvent(categorySection);
+
+  // const icon; // if i wanna add an icon
+
   const newCategory = document.createElement('button');
   newCategory.innerHTML = categoryName;
   newCategory.dataset.value = categoryName;
-  addCategoryButtonEvent(newCategory);
-  categoryContainer.appendChild(newCategory);
+
+  categorySection.appendChild(newCategory);
+
+  categoryContainer.appendChild(categorySection);
   // newCategory.classList.add(categoryName);
 }
 

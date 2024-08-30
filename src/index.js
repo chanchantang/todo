@@ -1,5 +1,6 @@
 import "./styles.css";
 import "./reset-styles.css";
+import "./icon-styles.css";
 
 
 // import { addListeners } from "./modules/eventListeners";

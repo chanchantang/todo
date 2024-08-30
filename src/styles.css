@@ -18,18 +18,16 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.sidebar button:hover {
-  background-color: #393939;
-}
-
 /* Title of category */
-.day-container > *:first-child, .category-container > *:first-child {
+.day-container .category-title, .category-container .category-title {
+
   color: white;
 }
 
 .sidebar .day-container, .sidebar .category-container {
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
 .task-container {
@@ -152,6 +150,7 @@ form {
   top: 0;
   width: 270px;
   height: 100vh;
+  padding: 20px;
 }
 
 /* stick to bottom of div */
@@ -212,39 +211,34 @@ form {
   overflow: hidden;
 }
 
-.date-icon {
-  background-color: lightcoral;
-  -webkit-mask:  url(assets/icons/calendar_clock.svg) center/cover no-repeat;
-  mask: url(assets/icons/calendar_clock.svg) center/cover no-repeat;
-  width: 24px;
-  height: 24px;
-}
-
-.priority-icon {
-  background-color: lightskyblue;
-  -webkit-mask:  url(assets/icons/priority.svg) center/cover no-repeat;
-  mask: url(assets/icons/priority.svg) center/cover no-repeat;
-  width: 24px;
-  height: 24px;
-}
-
-.close-icon {
-  background-color: white;
-  -webkit-mask:  url(assets/icons/close.svg) center/cover no-repeat;
-  mask: url(assets/icons/close.svg) center/cover no-repeat;
-  width: 24px;
-  height: 24px;
-}
-
-.category-icon {
-  background-color: lightgoldenrodyellow;
-  -webkit-mask:  url(assets/icons/topic.svg) center/cover no-repeat;
-  mask: url(assets/icons/topic.svg) center/cover no-repeat;
-  width: 24px;
-  height: 24px;
-}
-
-
 .dialog-notes-label, .dialog-status {
   color: #989898;
+}
+
+.sidebar-open {
+  /* position: absolute;
+  top: 20px;
+  left: 20px; */
+  padding: 20px 0 20px 20px;
+}
+
+.category-title {
+  display: flex;
+  justify-content: space-between;
+  font-size: large;
+  font-weight: 600;
+}
+
+.category-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.category-section button {
+  color: #949494;
+}
+
+.category-section:hover {
+  background-color: #393939;
 }

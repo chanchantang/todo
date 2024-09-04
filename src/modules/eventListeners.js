@@ -95,6 +95,7 @@ export const dialogListener = (function() {
     const newTitle = dialogTitle.value;
     if (!newTitle) return;
     const taskId = taskDialog.dataset.value;
+
     updateTask(taskId, 'title', newTitle);
     domMan.updateTaskCardTitle(taskId, newTitle);
 

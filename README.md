@@ -24,7 +24,7 @@ maybe instead save the last status and when toggling, toggles between completed 
 - Make it pretty
 Add new font (apple?)
 Sidebar
-    - Icon to hide and open
+    - Icon to hide and open ✅
 Modal
 Task container
 
@@ -82,3 +82,7 @@ Find out when to use id or class for event listeners
 - Convert everything to dataset value instead of id
 
 - Add a line through text for completed tasks
+
+- Add the hover cursor pointer on buttons
+
+- Change due date display to be in the format of ex: 'May 1, 2024'

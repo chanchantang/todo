@@ -1,3 +1,10 @@
+/*
+  Personal preference
+*/
+textarea {
+  resize: none;
+}
+
 * {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -16,18 +23,17 @@
   flex-direction: column;
   gap: 15px;
   background-color: rgba(0, 0, 0, 0.5);
+  min-width: 160px;
 }
 
-/* Title of category */
-.day-container .category-title, .category-container .category-title {
-
+.category-title {
   color: white;
 }
 
 .sidebar .day-container, .sidebar .category-container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  /* gap: 10px; */
 }
 
 .task-container {
@@ -82,7 +88,14 @@
   background-color: lightblue;
 }
 
-dialog {
+.task-card .card-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex: 1 0 0;
+}
+
+.task-dialog {
   background-color: #161616;
   padding: 0;
   margin: auto;
@@ -104,31 +117,10 @@ dialog::backdrop {
   height: 100%;
 }
 
-/*    https://codepen.io/nxworld/pen/RNdwee     */
-* {
-  padding: 0;
-	background: none;
-	border: none;
-	border-radius: 0;
-	outline: none;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-  color: white;
-}
-
-#dialog-notes {
-  resize: none;
-}
-
 .dialog-header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
-}
-
-#dialog-div form {
-  gap: 15px;
 }
 
 .dialog-title {
@@ -139,6 +131,7 @@ dialog::backdrop {
 form {
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
 .main-container {
@@ -150,7 +143,12 @@ form {
   top: 0;
   width: 270px;
   /* height: 100vh; */
-  padding: 20px;
+  /* padding: 20px; */
+  padding-top: 20px;
+}
+
+.day-container > *, .category-container > *,  .sidebar-collapse {
+  padding: 0 20px;
 }
 
 /* stick to bottom of div */
@@ -237,8 +235,43 @@ form {
 
 .category-section button {
   color: #949494;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.category-section:hover {
+.category-section, #new-category-button {
+  padding: 5px 20px;
+}
+
+.category-section:hover, #new-category-button:hover {
   background-color: #393939;
+}
+
+.category-dialog {
+  background-color: #161616;
+  padding: 0;
+  margin: auto;
+  width: 25%;
+  min-width: 300px;
+  height: 25%;
+  border: none;
+  border-radius: 10px;
+}
+
+.new-category-form .category-name {
+  font-size: xx-large;
+  font-weight: 600;
+}
+
+.new-category-form button[type=submit] {
+  background-color: #0483fb;
+  border-radius: 20px;
+  padding: 5px 0;
+  width: 40%;
+  min-width: 150px;
+}
+
+.new-category-form button[type=submit]:hover {
+  background-color: #0074e0;
 }

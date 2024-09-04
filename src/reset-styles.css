@@ -45,3 +45,19 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
+
+/*
+  Resets input style
+  By: https://codepen.io/nxworld/pen/RNdwee
+*/
+* {
+  padding: 0;
+	background: none;
+	border: none;
+	border-radius: 0;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+  color: white;
+}

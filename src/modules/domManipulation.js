@@ -1,4 +1,4 @@
-import { createTask, tasks } from './tasks'
+import { tasks } from './tasks'
 import { dialogListener, taskbarListener, tasksContainerListener } from "./eventListeners";
 import { categories } from './categories';
 
@@ -35,6 +35,7 @@ export function setTaskDialog(task, taskId) {
   dialogPriority.value = task.priority;
 
   dialogDueDate.value = task.dueDate;
+
   dialogDueDatePlaceholder.innerHTML = dialogDueDate.value;
 
   dialogCategory.value = task.category;
@@ -113,13 +114,17 @@ export function displayTaskCardByCategory(category) {
 }
 
 export function updateTaskCardTitle(id, newTitle) {
-  const allTaskCards = document.querySelectorAll('.card');
-  allTaskCards.forEach(taskCard => {
-    if (taskCard.id == id) {
-      const cardTitle = taskCard.querySelector('.card-title');
-      cardTitle.innerHTML = newTitle;
-    }
-  });
+  const taskCard = document.getElementById(id);
+  const cardTitle = taskCard.querySelector('.card-title');
+  cardTitle.innerHTML = newTitle;
+
+  // const allTaskCards = document.querySelectorAll('.card');
+  // allTaskCards.forEach(taskCard => {
+  //   if (taskCard.id == id) {
+  //     const cardTitle = taskCard.querySelector('.card-title');
+  //     cardTitle.innerHTML = newTitle;
+  //   }
+  // });
 }
 
 export function deleteTaskCard(id) {

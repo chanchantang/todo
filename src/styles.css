@@ -99,7 +99,7 @@ dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.75);
 }
 
-#dialog-div {
+.dialog-div {
   padding: 16px;
   height: 100%;
 }
@@ -149,7 +149,7 @@ form {
   position: sticky;
   top: 0;
   width: 270px;
-  height: 100vh;
+  /* height: 100vh; */
   padding: 20px;
 }
 

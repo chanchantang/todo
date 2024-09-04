@@ -1,5 +1,5 @@
 import { createTask, tasks } from './tasks'
-import { addTaskModalEvent, addCategoryButtonEvent, addStatusToggleEvent } from "./eventListeners";
+import { dialogListener, taskbarListener, tasksContainerListener } from "./eventListeners";
 import { categories } from './categories';
 
 const taskCards = document.querySelector('.task-cards');
@@ -45,15 +45,16 @@ const categoryContainer = document.querySelector('.category-container');
 export function displayCategory(categoryName) {
   const categorySection = document.createElement('div');
   categorySection.classList.add('category-section');
-  addCategoryButtonEvent(categorySection);
+  categorySection.dataset.value = categoryName;
 
   // const icon; // if i wanna add an icon
 
-  const newCategory = document.createElement('button');
-  newCategory.innerHTML = categoryName;
-  newCategory.dataset.value = categoryName;
+  const categoryButton = document.createElement('button');
+  categoryButton.innerHTML = categoryName;
 
-  categorySection.appendChild(newCategory);
+  taskbarListener.addCategoryButtonEvent(categorySection);
+
+  categorySection.appendChild(categoryButton);
 
   categoryContainer.appendChild(categorySection);
   // newCategory.classList.add(categoryName);
@@ -70,23 +71,13 @@ export function displayTaskCard(task) {
   cardDiv.classList.add('task-card');
   cardDiv.id = `${task.id}`;
 
-  // let cardInfo = `
-  //   <div class="card-title">${task.title}</div>
-  //   <div class="card-notes">Notes: ${task.notes}</div>
-  //   <div class="card-priority">${task.priority}</div>
-  //   <div class="card-start-date">${task.startDate}</div>
-  //   <div class="card-due-date">${task.dueDate}</div>
-  //   <div class="card-status">${task.status}</div>
-  //   <div class="card-category">${task.category}</div>
-  // `
   const statusCheckbox = document.createElement('input');
   statusCheckbox.type = 'checkbox';
   statusCheckbox.dataset.value = task.id;
   if (task.status == 'Completed') {
     statusCheckbox.checked = true;
   }
-  addStatusToggleEvent(statusCheckbox);
-  // add event listener
+  tasksContainerListener.addStatusToggleEvent(statusCheckbox);
 
   const cardTitleDiv = document.createElement('div');
   cardTitleDiv.classList.add('card-title');
@@ -95,7 +86,7 @@ export function displayTaskCard(task) {
   cardDiv.append(statusCheckbox);
   cardDiv.append(cardTitleDiv);
 
-  addTaskModalEvent(cardDiv);
+  dialogListener.addTaskModalEvent(cardDiv);
 
   taskCards.appendChild(cardDiv);
 }

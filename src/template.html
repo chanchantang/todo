@@ -40,15 +40,15 @@
             </div>
 
             <div class="category-container">
-                <div class="category-title">
+                <div class="category-title" id="new-category-button">
                     <div>My lists</div>
                     <div class="add-icon"></div>
                 </div>
 
-                <form class='new-category-form' action="" onsubmit="return false;">
+                <!-- <form class='new-category-form' action="" onsubmit="return false;">
                     <input type="text" class="text" placeholder="Add a list title">
                     <button class="add-list"> + </button>
-                </form>
+                </form> -->
             </div>
         </div>
         <div class="task-container">
@@ -63,7 +63,7 @@
         </div>
     </div>
     <dialog class="task-dialog" id="task-dialog">
-        <div id="dialog-div">
+        <div class="dialog-div">
             <div class="dialog-header">
                 <button>Category Name</button>
                 <select class="dialog-status">
@@ -109,6 +109,22 @@
             </form>
         </div>
     </dialog>
-    <dialog class="category-dialog" id="category-dialog"></dialog>
+    <dialog class="category-dialog" id="category-dialog">
+        <div class="dialog-div">
+            <div class="dialog-header">
+                <div class="dialog-close">
+                    <div class="close-icon"></div>
+                    <!-- <button autofocus></button> -->
+                    <!-- maybe i should add for accessability  -->
+                </div>
+            </div>
+            <div>
+                <form class="new-category-form" action="" onsubmit="return false;">
+                    <input type="text" class="category-name" placeholder="Add a list title">
+                    <button type="submit">Continue</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
 </body>
 </html>
